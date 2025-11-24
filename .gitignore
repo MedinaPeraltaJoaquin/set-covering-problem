@@ -1,0 +1,82 @@
+# ======================================
+# Rust / Cargo
+# ======================================
+target/                  # Carpeta de compilación
+**/*.rs.bk               # Archivos de respaldo generados por rustfmt
+Cargo.lock               # Opcional en librerías, pero en apps se suele versionar
+
+# ======================================
+# Archivos de entorno y configuración
+# ======================================
+.env                     # Variables de entorno (DB, API keys)
+.env.*                   # Variantes (.env.local, .env.test, etc.)
+
+# ======================================
+# IDE / Editor
+# ======================================
+# VSCode
+.vscode/
+*.code-workspace
+
+# IntelliJ / CLion / RustRover
+.idea/
+
+# Otros editores
+*.swp
+*.swo
+*~
+
+# ======================================
+# Logs
+# ======================================
+*.log
+
+# ======================================
+# Sistema operativo
+# ======================================
+.DS_Store                
+Thumbs.db                
+
+# svg / reports
+/svg/
+/reports/
+/svg_reports/
+/edges_reports/
+
+# Archivos generados por LaTeX/pdfLaTeX/XeLaTeX
+/Docs/*.aux
+/Docs/*.log
+/Docs/*.lof
+/Docs/*.lot
+/Docs/*.toc
+/Docs/*.fls
+/Docs/*.fdb_latexmk
+/Docs/*.synctex.gz
+/Docs/*.out
+/Docs/*.nav
+/Docs/*.snm
+/Docs/*.vrb
+/Docs/*.dvi
+/Docs/*.ps
+/Docs/*.idx
+/Docs/*.ilg
+/Docs/*.ind
+/Docs/*.nlo
+/Docs/*.nls
+/Docs/*.bbl
+/Docs/*.bcf
+/Docs/*.blg
+/Docs/*.run.xml
+
+# Directorios de compilación y archivos de TikZ/externalize
+/Docs/*.temp.pdf
+/Docs/_minted*
+/Docs/*-figures/
+/Docs/tikz-external/
+
+# Archivos de editor comunes
+*.bak
+*.swp
+*~
+.vscode/
+.latexmkrc
