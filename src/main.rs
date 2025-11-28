@@ -1,9 +1,12 @@
 mod utils;
+mod entity;
 
 use std::{env, process::exit};
 use chrono::Local;
 
 use utils::read_input::ReadInput;
+use entity::set::Set;
+use entity::subset_cover::SubsetCover;
 
 pub fn main(){
     let args : Vec<String> = env::args().collect();
@@ -38,5 +41,6 @@ pub fn main(){
         }
     };
 
-    println!("{:?}",subset_vec);
+    let set = Set::new(subset_vec);
+    println!("{}",set);
 }
