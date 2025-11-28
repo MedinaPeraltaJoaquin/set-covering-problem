@@ -50,8 +50,9 @@ Uso: programa [opciones]
 Opciones:
   -h, --help         Muestra esta ayuda y termina
   -v                 Activa el modo verbose
-  -svg               Activa el modo de salida SVG (Genera imágenes de convergencia y árbol final)
+  -svg               Activa el modo de salida SVG (Genera imágenes de convergencia)
   -s <I> <F>         Genera semillas en el rango [I, F] (ej: -s 1 10)
+  -c <path>          Ruta explícita del archivo .txt que representa los subconjuntos del universo
   -s <n>             Inicializa con la semilla n (ej: -s 42)
   -rs <n>            Genera n semillas aleatorias
 ```
