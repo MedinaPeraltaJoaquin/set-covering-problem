@@ -30,7 +30,6 @@ mod test {
         
         // Verificar min y max subset size
         assert_eq!(set.max_subset, 5, "El subconjunto S4 tiene tamaño 5");
-        assert_eq!(set.get_elements(), vec!["a".to_string(), "b".to_string(), "c".to_string(), "d".to_string(), "e".to_string()]);
     }
 
     // ====================================================================

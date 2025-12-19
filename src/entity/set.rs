@@ -58,16 +58,6 @@ impl Set {
         self.size_set
     }
 
-    pub fn get_elements(&self) -> Vec<String> {
-        let mut element_list: Vec<String> = self.elements
-            .iter()
-            .map(|(name, _)| format!("{}", name))
-            .collect();
-
-       element_list.sort();
-       element_list
-    }
-
     pub fn get_size_subsets(&self) -> usize {
         self.size_subsets
     }
@@ -91,7 +81,6 @@ impl Set {
             }
         }
 
-        println!("Inicia algoritmo");
         for i in 0..subsets.len() {
             let mut is_fully_disjoint = true;
 
@@ -178,6 +167,24 @@ impl Set {
         }
         
         Ok(covered_element_indices)
+    }
+
+    pub fn get_elements_in_subset_string(&self, subset_index: usize) -> Result<Vec<String>, String> {
+        let covered_element_index : Vec<usize> = match self.get_elements_in_subset(subset_index) {
+            Ok(indexs) => indexs,
+            Err(e) => return Err(e)
+        };
+
+        let index_to_name : HashMap<usize, String> = self.elements.iter()
+            .map(|(name, index)| (*index,name.clone())).collect();
+
+        let elements_list: Vec<String> = covered_element_index.into_iter()
+            .map(|index| {
+                index_to_name.get(&index).unwrap().clone()
+            })
+            .collect();
+
+        Ok(elements_list)
     }
 
     pub fn is_cover_valid(&self, subsets: &Vec<usize>) -> bool{

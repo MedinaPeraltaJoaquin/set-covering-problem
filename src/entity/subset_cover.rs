@@ -1,5 +1,7 @@
 use super::set::Set;
 
+#[derive(Debug,Clone)]
+
 pub struct SubsetCover {
     pub elements : Vec<usize>,
     pub cost : f64,
@@ -7,10 +9,10 @@ pub struct SubsetCover {
 }
 
 impl SubsetCover {
-    pub fn new(set : Set) -> Self{
+    pub fn new(set : &Set) -> Self{
         SubsetCover { 
             elements: vec![], 
-            cost: SubsetCover::calculate_cost(&vec![],&set), 
+            cost: SubsetCover::calculate_cost(&vec![],set), 
             size : 0
         }
     }
@@ -24,6 +26,16 @@ impl SubsetCover {
         }
 
         self.cost
+    }
+
+    pub fn get_cost(&mut self, set : &Set) -> f64 {
+        SubsetCover::calculate_cost(&self.elements, set)
+    }
+
+    pub fn apply_neighbour(&mut self, neighbour : &SubsetCover) {
+        self.elements = neighbour.elements.clone();
+        self.cost = neighbour.cost;
+        self.size = neighbour.size;
     }
 
     pub fn calculate_cost(subsets : &Vec<usize>, set : &Set) -> f64{

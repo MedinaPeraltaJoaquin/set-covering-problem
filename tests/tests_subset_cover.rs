@@ -28,7 +28,7 @@ mod test {
     #[test]
     fn test_new_initialization() {
         let set = setup_test_set();
-        let cover = SubsetCover::new(set.clone());
+        let cover = SubsetCover::new(&set);
 
         assert!(cover.elements.is_empty(), "La cobertura debe iniciar vacía");
         assert_eq!(cover.size, 0, "El tamaño debe ser 0");
@@ -96,7 +96,7 @@ mod test {
     #[test]
     fn test_add_subset_updates_state() {
         let set = setup_test_set();
-        let mut cover = SubsetCover::new(set.clone());
+        let mut cover = SubsetCover::new(&set);
 
         // 1. Agregar S0. C={S0}. |C|=1. Unión={a,b}. |Union|=2.
         // Costo = (1 + (5 - 2) * 5 * 5) / 5 = (1 + 75) / 5 = 76 / 5 = 15.2
@@ -118,7 +118,7 @@ mod test {
     #[test]
     fn test_add_subset_duplicate() {
         let set = setup_test_set();
-        let mut cover = SubsetCover::new(set.clone());
+        let mut cover = SubsetCover::new(&set);
 
         // 1. Agregar S0. Costo = 15.2
         cover.add_subset(0, &set);
